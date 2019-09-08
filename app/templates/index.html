@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TRADING SYSTEM</title>
+</head>
+
+<body>
+    <p>
+        <form method="POST" action="{{url_for('index')}}">
+            {{form_i.orderdate.label}}:{{form_i.orderdate(size=20)}}
+            {{form_i.expirationdate.label}}:{{form_i.expirationdate}}<br/>
+            {{form_i.deliverydate.label}}:{{form_i.deliverydate}}
+            {{form_i.customerid.label}}:{{form_i.customerid(size=20)}}<br/>
+            {{form_i.customername.label}}:{{form_i.customername(size=20)}}
+            {{form_i.orderfrom.label}}:{{form_i.orderfrom(size=20)}}<br/>
+            {{form_i.orderto.label}}:{{form_i.orderto(size=20)}}
+            {{form_i.ordervia.label}}:{{form_i.ordervia(size=20)}}<br/>
+            {{form_i.insurance.label}}:{{form_i.insurance(size=20)}}
+            {{form_i.remarks1.label}}:{{form_i.remarks1}}<br/>
+            {{form_i.remarks2.label}}:{{form_i.remarks2}}
+            {{form_i.incoterms.label}}:{{form_i.incoterms}}<br/>
+            {{form_i.signedorder.label}}:{{form_i.signedorder(size=20)}}
+            {{form_i.remarks.label}}:{{form_i.remarks}}<br/>
+            {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=20)}}
+            {{form_i.expensecost.label}}:{{form_i.expensecost(size=20)}}
+            {{form_i.submit}}
+        </form>
+    </p>
+</body>
+
+</html>
