@@ -25,8 +25,19 @@
             {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=20)}}
             {{form_i.expensecost.label}}:{{form_i.expensecost(size=20)}}
             {{form_i.submit}}
+            <button onclick="location.href='history.back()'">追加・戻る</button>
         </form>
     </p>
+    
+    <h1>Check the purchase order</h1>
+    <hr>
+    {% for all_purchaseorder in all_purchaseorder %}
+    <p>
+        {{all_purchaseorder.orderdate}}
+    </p>
+    <hr>
+    {% endfor %}
+    <a href="{{ url_for('home') }}">Go Home Page.</a>
 </body>
 
 </html>

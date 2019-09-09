@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from testmodels.database import db_session
 import os
@@ -16,7 +16,7 @@ def home():
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form_i = Insert()
-    if form_i.validate_on_submit():
+    if request.method == 'POST':
         contentorder = OrderContent(orderdate=form_i.orderdate.data, expirationdate=form_i.expirationdate.data,
                                 deliverydate=form_i.deliverydate.data, customerid=form_i.customerid.data,
                                 customername=form_i.customername.data, orderfrom=form_i.orderfrom.data,
@@ -28,10 +28,10 @@ def index():
         db_session.add(contentorder)
         db_session.commit()
         all_purchaseorder = OrderContent.query.all()
-        return redirect(url_for('checkpurchaseorder'))
-
-
-    return render_template('index.html', form_i=form_i)
+        return render_template('index.html', form_i=form_i, all_purchaseorder=all_purchaseorder)
+        #return redirect(url_for('checkpurchaseorder'))
+    else :
+        return render_template('index.html', form_i=form_i)
 
 @app.route('/checkpurchaseorder', methods=['GET'])
 def checkpurchaseorder():

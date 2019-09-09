@@ -32,6 +32,29 @@ class OrderContent(Base):
     remarks = Column(Text)
     expenseitem = Column(String)
     expensecost = Column(Integer)
+
+    def __init__(self, orderdate=None, expirationdate=None, deliverydate=None,
+                 customerid=None, customername=None, orderfrom=None, orderto=None,
+                 ordervia=None, insurance=None, remarks1=None, remarks2=None,
+                 incoterms=None, signedorder=None, remarks=None, expenseitem=None,
+                 expensecost=None ):
+        self.orderdate = orderdate
+        self.expirationdate = expirationdate
+        self.deliverydate = deliverydate
+        self.customerid = customerid
+        self.customername = customername
+        self.orderfrom = orderfrom
+        self.orderto = orderto
+        self.ordervia = ordervia
+        self.insurance = insurance
+        self.remarks1 = remarks1
+        self.remarks2 = remarks2
+        self.incoterms = incoterms
+        self.signedorder = signedorder
+        self.remarks = remarks
+        self.expenseitem = expenseitem
+        self.expensecost = expensecost
+
     # total amount #
     def __repr__(self):
         return '<PurchaseOrder %r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r>' % (self.id, self.orderdate, self.expirationdate, self.deliverydate, self.customerid, self.customername, self.orderfrom, self.orderto, self.ordervia, self.insurance, self.remarks1, self.remarks2, self.incoterms, self.signedorder, self.remarks, self.expenseitem, self.expensecost)
@@ -60,5 +83,7 @@ class Insert(FlaskForm):
 
     submit = SubmitField('追加')
 
-
+def init_db():
+    from testmodels.database import engine, Base
+    Base.metadata.create_all(bind=engine)
 
