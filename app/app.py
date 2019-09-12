@@ -38,5 +38,9 @@ def checkpurchaseorder():
     all_purchaseorder = OrderContent.query.all()
     return render_template('checkpurchaseorder.html', all_purchaseorder=all_purchaseorder)
 
+@app.route('/testselect', methods=['GET'])
+def testselect():
+    return render_template('testselect.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
