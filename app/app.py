@@ -2,11 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from testmodels.database import db_session
 import os
+import app.config
 
-from testmodels.models import OrderContent, Insert
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(32)
+from testmodels.models import OrderContent, InsertOrder, InsertProduct
 
 
 @app.route('/', methods=['GET'])
@@ -15,7 +13,7 @@ def home():
 
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    form_i = Insert()
+    form_i = InsertOrder()
     if request.method == 'POST':
         contentorder = OrderContent(orderdate=form_i.orderdate.data, expirationdate=form_i.expirationdate.data,
                                 deliverydate=form_i.deliverydate.data, customerid=form_i.customerid.data,
