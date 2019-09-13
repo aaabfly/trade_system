@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired, Length
 from wtforms.fields.html5 import DateField
 
 from testmodels.database import Base
-import app.config
+from app.app import SQLALCHEMY_DATABASE_BIND
 
 from datetime import datetime
 
@@ -117,6 +117,7 @@ class ProductDetail(Base):
     quantity = Column(Integer)
     amount = Column(Integer)
     valueflag = Column(Boolean)
+    info = {'bind_key': 'productdetaildb'}
 
     def __init__(self, item_no=None, productname=None,unitprice=None, quantity=None,
                  amount=None, valueflag=False):
@@ -144,7 +145,12 @@ class InsertProduct(FlaskForm):
         self.valueflag = valueflag
 
 
-def init_db():
-    from testmodels.database import engine, Base
-    Base.metadata.create_all(bind=engine, checkfirst=False)
+def init_db_purchase():
+    from testmodels.database import purchase_engine, Base
+    Base.metadata.create_all(bind=purchase_engine, checkfirst=False)
+
+def init_db_product():
+    from testmodels.database import product_engine, Base
+    Base.metadata.create_all(bind=product_engine, checkfirst=False)
+
 

@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from app.app import SQLALCHEMY_DATABASE_BIND
 import os
 
 
@@ -22,4 +23,5 @@ product_engine = create_engine('sqlite:///' + databese_purchaseorder_file, conve
 
 db_session_pr = scoped_session(sessionmaker(
     autocommit=False, autoflush=False, bind=product_engine))
+
 Base.query = db_session_pr.query_property()
