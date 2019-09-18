@@ -4,7 +4,6 @@ from testmodels.database import db_session_pu, db_session_pr, purchase_engine, p
 
 import os
 
-from flask_login import LoginManager, logout_user
 from testmodels.models import OrderContent, InsertOrder, ProductDetail, InsertProduct
 
 app = Flask(__name__)
