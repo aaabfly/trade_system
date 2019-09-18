@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>TRADING SYSTEM</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>TRADING SYSTEM</title>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
+    </head>
 
 <body>
-    <ul>
-       <li>
-           <a href="{{ url_for('index') }}">Purchase Order Page</a><br/>
-           <a href="{{ url_for('checkpurchaseorder') }}">Check Puchase Order Page</a>
-       </li>
-    </ul>
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                Trading System
+            </h1>
+            <nav>
+                <a href="{{ url_for('login') }}">Login</a>
+            </nav>
+        </div>
+    </header><!-- /header -->
+    <div class="home-button">
+       <button onclick="location.href='./index'">Purchase Order Input</button>
+       <button onclick="location.href='./checkpurchaseorder'">Purchase Order Check</button>
+    </div>
 </body>
 
 </html>

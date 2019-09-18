@@ -4,12 +4,17 @@ from testmodels.database import db_session_pu, db_session_pr, purchase_engine, p
 
 import os
 
+from flask_login import LoginManager, logout_user
 from testmodels.models import OrderContent, InsertOrder, ProductDetail, InsertProduct
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
+
 
 SQLALCHEMY_DATABASE_BIND = {'purchaseorderdb': purchase_engine,
                             'productdetaildb': product_engine}
+
+
 
 
 @app.route('/', methods=['GET'])
@@ -44,6 +49,10 @@ def checkpurchaseorder():
 @app.route('/testselect', methods=['GET'])
 def testselect():
     return render_template('testselect.html')
+
+@app.route('/login', methods=['GET'])
+def login():
+    return render_template('login.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
