@@ -23,9 +23,10 @@
             </nav>
         </div>
     </header><!-- /header -->
-    <div class="login-form">
+
+    <div class="login-form new-form">
         <form action="/examples/actions/confirmation.php" method="post">
-            <h2 class="text-center">Sign In</h2>
+            <h2 class="text-center">Sign Up</h2>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Username" required="required">
             </div>
@@ -33,9 +34,9 @@
                 <input type="password" class="form-control" placeholder="Password" required="required">
             </div>
         </form>
-        <button onclick="location.href='./'" method="POST" type="submit"
-                    class="btn btn-primary btn-block">Log in</button>
-        <p class="text-center"><a href="{{ url_for('new') }}">Create an Account</a></p>
+        <button type="submit" onclick="location.href='./'" method="POST"
+                    class=" btn btn-primary btn-block">Register</button>
+        <p class="text-center"><a href="{{ url_for('login') }}">Already have an acount?</a></p>
     </div>
 </body>
 
