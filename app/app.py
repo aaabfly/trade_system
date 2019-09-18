@@ -9,7 +9,6 @@ from testmodels.models import OrderContent, InsertOrder, ProductDetail, InsertPr
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-
 SQLALCHEMY_DATABASE_BIND = {'purchaseorderdb': purchase_engine,
                             'productdetaildb': product_engine}
 
@@ -45,13 +44,13 @@ def checkpurchaseorder():
     all_purchaseorder = OrderContent.query.all()
     return render_template('checkpurchaseorder.html', all_purchaseorder=all_purchaseorder)
 
-@app.route('/testselect', methods=['GET'])
-def testselect():
-    return render_template('testselect.html')
-
 @app.route('/login', methods=['GET'])
 def login():
     return render_template('login.html')
+
+@app.route('/new', methods=['GET'])
+def new():
+    return render_template('new.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

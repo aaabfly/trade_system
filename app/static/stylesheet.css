@@ -60,7 +60,7 @@ header {
     transition: height 0.3s;
 }
 
-header h1#logo {
+header h1#logo a {
     display: inline-block;
     height: 150px;
     line-height: 150px;
@@ -69,11 +69,8 @@ header h1#logo {
     font-size: 60px;
     color: white;
     font-weight: 400;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+    position: relative; top: 15px;
+    position: relative; left: 15px;
 }
 
 header nav {

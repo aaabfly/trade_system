@@ -1,3 +1,24 @@
 {
-    "python.pythonPath": "/usr/local/bin/python3"
+    // フォント サイズをピクセル単位で制御します。
+    "editor.fontSize": 16,
+    // フォント ファミリを制御します。
+    "editor.fontFamily": "Ricty",
+    "python.pythonPath": "/usr/local/bin/python3",
+    // 入力補完を表示する
+    "editor.quickSuggestions": true,
+    // 現在行をガターを含めてハイライトするので視認性が上がる
+    "editor.renderLineHighlight": "all",
+    // 入力補完の表示を何ms遅らせるか
+    "editor.quickSuggestionsDelay": 10,
+     // ターミナルのフォント サイズをピクセル単位で制御します。
+     "terminal.integrated.fontSize": 18,
+     "window.zoomLevel": -1,
+     // 拡張機能を自動更新
+     "extensions.autoUpdate": true,
+     // 実行するターミナル アプリケーションをカスタマイズします。
+     "terminal.external.osxExec": "iTerm.app",
+     // Terminalのフォント設定
+     "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
+     "workbench.iconTheme": "material-icon-theme",
+     "workbench.statusBar.visible": true,
 }
