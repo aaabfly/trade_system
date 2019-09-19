@@ -1,14 +1,15 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import (Column, Integer, String, Text, Date, ForeignKey, Boolean)
-from sqlalchemy.orm import relationship
+#from sqlalchemy.orm import relationship
 
 from flask_wtf import FlaskForm
-from wtforms import (StringField, DateField, BooleanField, TextAreaField,SelectField, IntegerField, SubmitField)
+from wtforms import (StringField, DateField, BooleanField,
+                    TextAreaField,SelectField, IntegerField, SubmitField)
 from wtforms.validators import DataRequired, Length
 from wtforms.fields.html5 import DateField
 
 from testmodels.database import Base
-import app.app
+from app.app import app
 
 from datetime import datetime
 
@@ -65,42 +66,58 @@ class OrderContent(Base):
 
     # total amount #
     def __repr__(self):
-        return '<PurchaseOrder %r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r>' % (self.id, self.orderdate, self.expirationdate, self.deliverydate, self.customerid, self.customername, self.orderfrom, self.orderto, self.ordervia, self.insurance, self.remarks1, self.remarks2, self.incoterms, self.signedorder, self.remarks, self.expenseitem, self.expensecost)
+        return '<PurchaseOrder %r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r>' % (self.id,
+                self.orderdate, self.expirationdate, self.deliverydate, self.customerid,
+                self.customername, self.orderfrom, self.orderto, self.ordervia, self.insurance,
+                self.remarks1, self.remarks2, self.incoterms, self.signedorder, self.remarks,
+                self.expenseitem, self.expensecost)
 
 
 class InsertOrder(FlaskForm):
-    orderdate = DateField('orderdate', validators=[DataRequired()],
-                          format='%Y-%m-%d')
-    expirationdate = DateField('expirationdate', validators=[DataRequired()],
-                          format='%Y-%m-%d')
-    deliverydate = DateField('deliverydate', validators=[DataRequired()],
-                          format='%Y-%m-%d')
-    customerid = StringField('customerid', validators=[DataRequired()])
-    customername = StringField('customername', validators=[DataRequired()])
-    orderfrom = StringField('orderfrom', validators=[DataRequired()])
-    orderto = StringField('orderto', validators=[DataRequired()])
-    ordervia = StringField('ordervia', validators=[DataRequired()])
-    insurance = TextAreaField('insurance', validators=[DataRequired()])
+    orderdate = DateField('orderdate')
+    expirationdate = DateField('expirationdate')
+    deliverydate = DateField('deliverydate')
+    customerid = StringField('customerid')
+    customername = StringField('customername')
+    orderfrom = StringField('orderfrom')
+    orderto = StringField('orderto')
+    ordervia = StringField('ordervia')
+    paymentterm = SelectField(
+                        'paymentterm',
+                        choices=[(
+                            ('', ''),
+                            ('100% ADVANCE PAYMENT BY T/T(=T/T in advance)',
+                                       '100% ADVANCE PAYMENT BY T/T(=T/T in advance)'),
+                            ('T/T at sight', 'T/T at sight'),
+                            ('D/P at sight','D/P at sight'),
+                            ('L/C at sight', 'L/C at sight'),
+                            ('At 30 days after sight', 'At 30 days after sight'),
+                            ('At 30 days after B/L date', 'At 30 days after B/L date'),
+                            ('D/A at 30 days after sightまたはD/A at 30 days after B/L date',
+                             'D/A at 30 days after sightまたはD/A at 30 days after B/L date'),
+                            ('D/P at 30 days after sightまたはD/P at 30 days after B/L date',
+                             'D/P at 30 days after sightまたはD/P at 30 days after B/L date'),
+                            ('L/C at 30 days after sightまたはL/C at 30 days after B/L date',
+                             'L/C at 30 days after sightまたはL/C at 30 days after B/L date'),
+                            ('Ban Check', 'Ban Check'))],default='')
+    insurance = TextAreaField('insurance')
     remarks1 = TextAreaField('remarks1')
-    remarks2 = TextAreaField('remarks2')
-    currency = SelectField('currency',
-                            validation=[DataRequired()],
-                            choices=[(('ドル', 'ドル'), ('円', '円'),
-                            ('ユーロ', 'ユーロ'))],
-                            default='')
-    paymentterms = SelectField(
-                    'paymentterms',
-                    validators=[DataRequired()],
+    incoterms = SelectField(
+                    'incoterms',
                     choices=[(('', ''), ('EXW', 'EXW'), ('FCA', 'FCA'),
                             ('CPT', 'CPT'), ('CIP', 'CIP'), ('DAT', 'DAT'),
                             ('DAP', 'DAP'), ('DDP', 'DDP'), ('FAS', 'FAS'),
                             ('FOB', 'FOB'), ('CFR', 'CFR'), ('CIF', 'CIR'))],
                             default='' )
-
-    signedorder = StringField('signedorder', validators=[DataRequired()])
+    remarks2 = TextAreaField('remarks2')
+    currency = SelectField('currency',
+                            choices=[(('ドル', 'ドル'), ('円', '円'),
+                            ('ユーロ', 'ユーロ'))],
+                            default='')
+    signedorder = StringField('signedorder')
     remarks = TextAreaField('remarks')
-    expenseitem = StringField('expenseitem', validators=[DataRequired()])
-    expensecost = IntegerField('expensecost', validators=[DataRequired()])
+    expenseitem = StringField('expenseitem')
+    expensecost = IntegerField('expensecost')
 
     submit = SubmitField('追加')
 
@@ -133,10 +150,10 @@ class ProductDetail(Base):
                     self.unitprice, self.quantity, self.amount, self.valueflag)
 
 class InsertProduct(FlaskForm):
-    item_no = StringField('item_no', validators=[DataRequired()])
-    productname = StringField('productname', validators=[DataRequired()])
-    unitprice = IntegerField('unitprice', validators=[DataRequired()])
-    quantity = IntegerField('quantity', validators=[DataRequired()])
+    item_no = StringField('item_no')
+    productname = StringField('productname')
+    unitprice = IntegerField('unitprice')
+    quantity = IntegerField('quantity')
     amount = IntegerField('amount')
     valueflag = BooleanField('valueflag')
 

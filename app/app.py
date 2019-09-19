@@ -30,7 +30,7 @@ def index():
                                 remarks1=form_i.remarks1.data, remarks2=form_i.remarks2.data,
                                 incoterms=form_i.incoterms.data, signedorder=form_i.signedorder.data,
                                 remarks=form_i.remarks.data, expenseitem=form_i.expenseitem.data,
-                                expensecost=form_i.expensecost.data)
+                                expensecost=form_i.expensecost.data,paymentterm=form_i.paymentterm.data)
         db_session_pu.add(contentorder)
         db_session_pu.commit()
         all_purchaseorder = OrderContent.query.all()
