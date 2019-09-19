@@ -1,5 +1,3 @@
-header .container {
-}
 /* home画面のCSS */
 .home-button {
     /* 位置指定 */
@@ -33,6 +31,7 @@ header .container {
     /* 文字色を白色に指定 */
     color: #fff;
 
+
     /* ボーダーをなくす */
     border-style: none;
 
@@ -46,6 +45,21 @@ header .container {
     -moz-box-shadow: 2px 2px 3px 1px #666;
     -webkit-box-shadow: 2px f2px 3px 1px #666;
 }
+
+.button:active {
+    /*on Click*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    /*Move down*/
+    border-bottom: none;
+    /*disappears*/
+}
+
+.home-button button:hover {
+    color: white
+}
+
 /* home画面のCSS終了 */
 
 header {
@@ -102,7 +116,4 @@ header.smaller h1#logo {
 
 header.smaller nav a {
     line-height: 75px;
-}
-
-div .inputform {
 }
