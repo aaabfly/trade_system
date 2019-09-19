@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 
+    <head>
+        <meta charset="utf-8">
+        <title>TRADING SYSTEM</title>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
+    </head>
+
+<body>
+
     <header>
         <div class="container clearfix">
             <h1 id="logo">
@@ -13,29 +25,50 @@
         </div>
     </header><!-- /header -->
 
-<body>
-    <p>
+        <div class="container clearfix">
+                <form method="POST" action="{{url_for('index')}}">
+                    {{form_i.orderdate.label}}:{{form_i.orderdate(size=100)}}
+                    {{form_i.expirationdate.label}}:{{form_i.expirationdate(size=100)}}<br />
+                    {{form_i.deliverydate.label}}:{{form_i.deliverydate(size=100)}}
+                    {{form_i.customerid.label}}:{{form_i.customerid(size=100)}}<br/>
+                    {{form_i.customername.label}}:{{form_i.customername(size=100)}}
+                    {{form_i.orderfrom.label}}:{{form_i.orderfrom(size=100)}}<br/>
+                    {{form_i.orderto.label}}:{{form_i.orderto(size=100)}}
+                    {{form_i.ordervia.label}}:{{form_i.ordervia(size=100)}}<br/>
+                    {{form_i.insurance.label}}:{{form_i.insurance(size=100)}}
+                    {{form_i.remarks1.label}}:{{form_i.remarks1(size=100)}}<br />
+                    {{form_i.remarks2.label}}:{{form_i.remarks2(size=100)}}
+                    {{form_i.incoterms.label}}:{{form_i.incoterms}}<br/>
+                    {{form_i.signedorder.label}}:{{form_i.signedorder(size=100)}}
+                    {{form_i.remarks.label}}:{{form_i.remarks(size=100)}}<br />
+                    {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=100)}}
+                    {{form_i.expensecost.label}}:{{form_i.expensecost(size=100)}}<br/>
+                    {{form_i.submit}}
+                </form>
+                <button formmethod="POST" onclick="location.href='./checkpurchaseorder'">追加・戻る</button>
+        </div>
+        <!--
         <form method="POST" action="{{url_for('index')}}">
-            {{form_i.orderdate.label}}:{{form_i.orderdate(size=20)}}
+            {{form_i.orderdate.label}}:{{form_i.orderdate(size=100)}}
             {{form_i.expirationdate.label}}:{{form_i.expirationdate}}<br/>
             {{form_i.deliverydate.label}}:{{form_i.deliverydate}}
-            {{form_i.customerid.label}}:{{form_i.customerid(size=20)}}<br/>
-            {{form_i.customername.label}}:{{form_i.customername(size=20)}}
-            {{form_i.orderfrom.label}}:{{form_i.orderfrom(size=20)}}<br/>
-            {{form_i.orderto.label}}:{{form_i.orderto(size=20)}}
-            {{form_i.ordervia.label}}:{{form_i.ordervia(size=20)}}<br/>
-            {{form_i.insurance.label}}:{{form_i.insurance(size=20)}}
+            {{form_i.customerid.label}}:{{form_i.customerid(size=100)}}<br/>
+            {{form_i.customername.label}}:{{form_i.customername(size=100)}}
+            {{form_i.orderfrom.label}}:{{form_i.orderfrom(size=100)}}<br/>
+            {{form_i.orderto.label}}:{{form_i.orderto(size=100)}}
+            {{form_i.ordervia.label}}:{{form_i.ordervia(size=100)}}<br/>
+            {{form_i.insurance.label}}:{{form_i.insurance(size=100)}}
             {{form_i.remarks1.label}}:{{form_i.remarks1}}<br/>
             {{form_i.remarks2.label}}:{{form_i.remarks2}}
             {{form_i.incoterms.label}}:{{form_i.incoterms}}<br/>
-            {{form_i.signedorder.label}}:{{form_i.signedorder(size=20)}}
+            {{form_i.signedorder.label}}:{{form_i.signedorder(size=100)}}
             {{form_i.remarks.label}}:{{form_i.remarks}}<br/>
-            {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=20)}}
-            {{form_i.expensecost.label}}:{{form_i.expensecost(size=20)}}
+            {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=100)}}
+            {{form_i.expensecost.label}}:{{form_i.expensecost(size=100)}}<br/>
             {{form_i.submit}}
             <button onclick="location.href='history.back()'">追加・戻る</button>
         </form>
-    </p>
+        -->
 
     <h1>Check the purchase order</h1>
     <hr>

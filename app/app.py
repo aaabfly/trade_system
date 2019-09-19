@@ -1,16 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from testmodels.database import db_session_pu, db_session_pr, purchase_engine, product_engine
-
+from testmodels.database import db_session, engine
 import os
 
-from testmodels.models import OrderContent, InsertOrder, ProductDetail, InsertProduct
-
+from testmodels.models import OrderContent, InsertOrder
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-
-SQLALCHEMY_DATABASE_BIND = {'purchaseorderdb': purchase_engine,
-                            'productdetaildb': product_engine}
 
 
 
@@ -31,8 +26,8 @@ def index():
                                 incoterms=form_i.incoterms.data, signedorder=form_i.signedorder.data,
                                 remarks=form_i.remarks.data, expenseitem=form_i.expenseitem.data,
                                 expensecost=form_i.expensecost.data)
-        db_session_pu.add(contentorder)
-        db_session_pu.commit()
+        db_session.add(contentorder)
+        db_session.commit()
         all_purchaseorder = OrderContent.query.all()
         return render_template('index.html', form_i=form_i, all_purchaseorder=all_purchaseorder)
         #return redirect(url_for('checkpurchaseorder'))
