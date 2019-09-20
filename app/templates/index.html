@@ -26,59 +26,71 @@
     </header><!-- /header -->
 
         <div class="container clearfix">
-                <form method="POST" action="{{url_for('index')}}">
-                    {{form_i.orderdate.label}}:{{form_i.orderdate(size=100)}}
-                    {{form_i.expirationdate.label}}:{{form_i.expirationdate(size=100)}}<br />
-                    {{form_i.deliverydate.label}}:{{form_i.deliverydate(size=100)}}
-                    {{form_i.customerid.label}}:{{form_i.customerid(size=100)}}<br/>
-                    {{form_i.customername.label}}:{{form_i.customername(size=100)}}
-                    {{form_i.orderfrom.label}}:{{form_i.orderfrom(size=100)}}<br/>
-                    {{form_i.orderto.label}}:{{form_i.orderto(size=100)}}
-                    {{form_i.ordervia.label}}:{{form_i.ordervia(size=100)}}<br/>
-                    {{form_i.insurance.label}}:{{form_i.insurance(size=100)}}
-                    {{form_i.remarks1.label}}:{{form_i.remarks1(size=100)}}<br />
-                    {{form_i.remarks2.label}}:{{form_i.remarks2(size=100)}}
-                    {{form_i.incoterms.label}}:{{form_i.incoterms}}<br/>
-                    {{form_i.signedorder.label}}:{{form_i.signedorder(size=100)}}
-                    {{form_i.remarks.label}}:{{form_i.remarks(size=100)}}<br />
-                    {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=100)}}
-                    {{form_i.expensecost.label}}:{{form_i.expensecost(size=100)}}<br/>
-                    {{form_i.submit}}
-                </form>
-                <button formmethod="POST" onclick="location.href='./checkpurchaseorder'">追加・戻る</button>
-        </div>
-        <!--
-        <form method="POST" action="{{url_for('index')}}">
-            {{form_i.orderdate.label}}:{{form_i.orderdate(size=100)}}
-            {{form_i.expirationdate.label}}:{{form_i.expirationdate}}<br/>
-            {{form_i.deliverydate.label}}:{{form_i.deliverydate}}
-            {{form_i.customerid.label}}:{{form_i.customerid(size=100)}}<br/>
-            {{form_i.customername.label}}:{{form_i.customername(size=100)}}
-            {{form_i.orderfrom.label}}:{{form_i.orderfrom(size=100)}}<br/>
-            {{form_i.orderto.label}}:{{form_i.orderto(size=100)}}
-            {{form_i.ordervia.label}}:{{form_i.ordervia(size=100)}}<br/>
-            {{form_i.insurance.label}}:{{form_i.insurance(size=100)}}
-            {{form_i.remarks1.label}}:{{form_i.remarks1}}<br/>
-            {{form_i.remarks2.label}}:{{form_i.remarks2}}
-            {{form_i.incoterms.label}}:{{form_i.incoterms}}<br/>
-            {{form_i.signedorder.label}}:{{form_i.signedorder(size=100)}}
-            {{form_i.remarks.label}}:{{form_i.remarks}}<br/>
-            {{form_i.expenseitem.label}}:{{form_i.expenseitem(size=100)}}
-            {{form_i.expensecost.label}}:{{form_i.expensecost(size=100)}}<br/>
-            {{form_i.submit}}
-            <button onclick="location.href='history.back()'">追加・戻る</button>
-        </form>
-        -->
+            <form class="mt-5" method="POST" action="{{url_for('index')}}">
+                <div class="border border-dark mt-5">
+                    {{form_i.orderdate.label}}:{{form_i.orderdate(class='col-md-12 p-3')}}
+                    {{form_i.expirationdate.label}}:{{form_i.expirationdate(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.deliverydate.label}}:{{form_i.deliverydate(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.customerid.label}}:{{form_i.customerid(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.customername.label}}:{{form_i.customername(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.orderfrom.label}}:{{form_i.orderfrom(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.orderto.label}}:{{form_i.orderto(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.ordervia.label}}:{{form_i.ordervia(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.insurance.label}}:{{form_i.insurance(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.remarks1.label}}:{{form_i.remarks1(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.remarks2.label}}:{{form_i.remarks2(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.incoterms.label}}:{{form_i.incoterms(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.signedorder.label}}:{{form_i.signedorder(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.remarks.label}}:{{form_i.remarks(class='col-md-12 px-3 pb-3')}}<br />
+                    {{form_i.expenseitem.label}}:{{form_i.expenseitem(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.expensecost.label}}:{{form_i.expensecost(class='col-md-12 px-3 pb-3')}}<br />
+                </div>
 
-    <h1>Check the purchase order</h1>
-    <hr>
-    {% for all_purchaseorder in all_purchaseorder %}
-    <p>
-        {{all_purchaseorder.orderdate}}
-    </p>
-    <hr>
-    {% endfor %}
-    <a href="{{ url_for('home') }}">Go Home Page.</a>
+                <div class="border border-dark mt-5">
+                    {{form_i.itemnumber1.label}}:{{form_i.itemnumber1(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.productname1.label}}:{{form_i.productname1(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.unitprice1.label}}:{{form_i.unitprice1(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.quantity1.label}}:{{form_i.quantity1(class='col-md-12 px-3 pb-3')}}
+                    <!--{{form_i.amount1.label}}:{{form_i.amount1}}-->
+                </div>
+
+                <div class="border border-dark mt-5">
+                    {{form_i.itemnumber2.label}}:{{form_i.itemnumber2(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.productname2.label}}:{{form_i.productname2(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.unitprice2.label}}:{{form_i.unitprice2(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.quantity2.label}}:{{form_i.quantity2(class='col-md-12 px-3 pb-3')}}
+                    <!--{{form_i.amount2.label}}:{{form_i.amount2}}-->
+                </div>
+
+                <div class="border border-dark mt-5">
+                    {{form_i.itemnumber3.label}}:{{form_i.itemnumber3(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.productname3.label}}:{{form_i.productname3(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.unitprice3.label}}:{{form_i.unitprice3(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.quantity3.label}}:{{form_i.quantity3(class='col-md-12 px-3 pb-3')}}
+                    <!--{{form_i.amount3.label}}:{{form_i.amount3}}-->
+                </div>
+
+                <div class="border border-dark mt-5">
+                    {{form_i.itemnumber4.label}}:{{form_i.itemnumber4(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.productname4.label}}:{{form_i.productname4(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.unitprice4.label}}:{{form_i.unitprice4(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.quantity4.label}}:{{form_i.quantity4(class='col-md-12 px-3 pb-3')}}
+                    <!--{{form_i.amount4.label}}:{{form_i.amount4}}-->
+                </div>
+
+                <div class="border border-dark mt-5">
+                    {{form_i.itemnumber5.label}}:{{form_i.itemnumber5(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.productname5.label}}:{{form_i.productname5(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.unitprice5.label}}:{{form_i.unitprice5(class='col-md-12 px-3 pb-3')}}
+                    {{form_i.quantity5.label}}:{{form_i.quantity5(class='col-md-12 px-3 pb-3')}}
+                    <!--{{form_i.amount5.label}}:{{form_i.amount5}}-->
+                </div>
+
+                {{form_i.purchase_submit}}
+
+            </form>
+        </div>
+
 </body>
 
 </html>

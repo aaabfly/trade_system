@@ -189,6 +189,4 @@ class InsertOrder(FlaskForm):
     amount5 = IntegerField('amount5')
     novalue5 = BooleanField('novalue5')
 
-def init_db():
-    from testmodels.database import engine, Base
-    Base.metadata.create_all(bind=engine)
+

@@ -31,7 +31,6 @@
     /* 文字色を白色に指定 */
     color: #fff;
 
-
     /* ボーダーをなくす */
     border-style: none;
 
@@ -81,7 +80,7 @@ header h1#logo a {
     line-height: 150px;
     float: left;
     font-family: "Oswald", sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     color: white;
     font-weight: 400;
 }
