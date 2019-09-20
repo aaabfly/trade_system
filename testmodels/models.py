@@ -135,57 +135,6 @@ class OrderContent(Base):
 
     # total amount #
     def __repr__(self):
-<<<<<<< HEAD
-        return '<PurchaseOrder %r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r>' % (self.id,
-                self.orderdate, self.expirationdate, self.deliverydate, self.customerid,
-                self.customername, self.orderfrom, self.orderto, self.ordervia, self.insurance,
-                self.remarks1, self.remarks2, self.incoterms, self.signedorder, self.remarks,
-                self.expenseitem, self.expensecost)
-
-
-class InsertOrder(FlaskForm):
-    orderdate = DateField('orderdate')
-    expirationdate = DateField('expirationdate')
-    deliverydate = DateField('deliverydate')
-    customerid = StringField('customerid')
-    customername = StringField('customername')
-    orderfrom = StringField('orderfrom')
-    orderto = StringField('orderto')
-    ordervia = StringField('ordervia')
-    paymentterm = SelectField(
-                        'paymentterm',
-                        choices=[(
-                            ('', ''),
-                            ('100% ADVANCE PAYMENT BY T/T(=T/T in advance)',
-                                       '100% ADVANCE PAYMENT BY T/T(=T/T in advance)'),
-                            ('T/T at sight', 'T/T at sight'),
-                            ('D/P at sight','D/P at sight'),
-                            ('L/C at sight', 'L/C at sight'),
-                            ('At 30 days after sight', 'At 30 days after sight'),
-                            ('At 30 days after B/L date', 'At 30 days after B/L date'),
-                            ('D/A at 30 days after sightまたはD/A at 30 days after B/L date',
-                             'D/A at 30 days after sightまたはD/A at 30 days after B/L date'),
-                            ('D/P at 30 days after sightまたはD/P at 30 days after B/L date',
-                             'D/P at 30 days after sightまたはD/P at 30 days after B/L date'),
-                            ('L/C at 30 days after sightまたはL/C at 30 days after B/L date',
-                             'L/C at 30 days after sightまたはL/C at 30 days after B/L date'),
-                            ('Ban Check', 'Ban Check'))],default='')
-    insurance = TextAreaField('insurance')
-    remarks1 = TextAreaField('remarks1')
-    incoterms = SelectField(
-                    'incoterms',
-                    choices=[(('', ''), ('EXW', 'EXW'), ('FCA', 'FCA'),
-                            ('CPT', 'CPT'), ('CIP', 'CIP'), ('DAT', 'DAT'),
-                            ('DAP', 'DAP'), ('DDP', 'DDP'), ('FAS', 'FAS'),
-                            ('FOB', 'FOB'), ('CFR', 'CFR'), ('CIF', 'CIR'))],
-                            default='' )
-    remarks2 = TextAreaField('remarks2')
-    currency = SelectField('currency',
-                            choices=[(('ドル', 'ドル'), ('円', '円'),
-                            ('ユーロ', 'ユーロ'))],
-                            default='')
-    signedorder = StringField('signedorder')
-=======
         return '<PurchaseOrder %r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r,%r, >' % (self.id,
                 self.orderdate, self.expirationdate, self.deliverydate, self.customerid,
                 self.customername, self.orderfrom, self.orderto, self.ordervia, self.insurance,
@@ -216,7 +165,6 @@ class InsertOrder(FlaskForm):
     remarks2 = TextAreaField('remarks2')
     incoterms = TextAreaField('incoterms')
     signedorder = StringField('signedorder', validators=[DataRequired()])
->>>>>>> db_create
     remarks = TextAreaField('remarks')
     expenseitem = StringField('expenseitem')
     expensecost = IntegerField('expensecost')
