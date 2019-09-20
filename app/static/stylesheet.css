@@ -1,3 +1,4 @@
+/* home画面のCSS */
 .home-button {
     /* 位置指定 */
     position: absolute;
@@ -41,36 +42,56 @@
     * 色を#666（グレー）に指定 */
     box-shadow: 2px 2px 3px 1px #666;
     -moz-box-shadow: 2px 2px 3px 1px #666;
-    -webkit-box-shadow: 2px 2px 3px 1px #666;
+    -webkit-box-shadow: 2px f2px 3px 1px #666;
 }
+
+.button:active {
+    /*on Click*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    /*Move down*/
+    border-bottom: none;
+    /*disappears*/
+}
+
+.home-button button:hover {
+    color: white
+}
+
+/* home画面のCSS終了 */
 
 header {
     width: 100%;
-    height: 150px;
+    height: 120px;
+    /*
     overflow: hidden;
+<<<<<<< HEAD
     /*position: fixed;*/
+=======
+    position: fixed;
+    */
+>>>>>>> db_create
     top: 0;
     left: 0;
     z-index: 999;
     background-color: #0683c9;
-    -webkit-transition: height 0.3s;
-    -moz-transition: height 0.3s;
-    -ms-transition: height 0.3s;
-    -o-transition: height 0.3s;
-    transition: height 0.3s;
 }
 
 header h1#logo a {
     display: inline-block;
-    height: 150px;
+    height: 120px;
     line-height: 150px;
     float: left;
     font-family: "Oswald", sans-serif;
-    font-size: 60px;
+    font-size: 30px;
     color: white;
     font-weight: 400;
+<<<<<<< HEAD
     /*position: relative; top: 15px;
     position: relative; left: 15px;*/
+=======
+>>>>>>> db_create
 }
 
 header nav {
@@ -84,11 +105,6 @@ header nav a {
     color: #9fdbfc;
     font-weight: 700;
     font-size: 18px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
 }
 
 header nav a:hover {
