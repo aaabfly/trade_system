@@ -1,25 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
-<<<<<<< HEAD
-from sqlalchemy import (Column, Integer, String, Text, Date, ForeignKey, Boolean)
-#from sqlalchemy.orm import relationship
-
-from flask_wtf import FlaskForm
-from wtforms import (StringField, DateField, BooleanField,
-                    TextAreaField,SelectField, IntegerField, SubmitField)
-=======
 from sqlalchemy import Column, Integer, String, Text, Date, create_engine, Boolean
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, HiddenField, TextAreaField, IntegerField, BooleanField
->>>>>>> db_create
 from wtforms.validators import DataRequired, Length
 from wtforms.fields.html5 import DateField
 
 from testmodels.database import Base
-<<<<<<< HEAD
-from app.app import app
-=======
->>>>>>> db_create
 
 from datetime import datetime
 
@@ -169,58 +156,6 @@ class InsertOrder(FlaskForm):
     expenseitem = StringField('expenseitem')
     expensecost = IntegerField('expensecost')
 
-<<<<<<< HEAD
-    submit = SubmitField('追加')
-
-class ProductDetail(Base):
-    __tablename__ = 'productdetail'
-    __bind_key__ = 'productdetaildb'
-
-    id = Column(Integer, primary_key=True)
-    ordercontent_id = Column(Integer, ForeignKey('ordercontent.id'))
-
-    item_no = Column(String)
-    productname = Column(String)
-    unitprice = Column(Integer)
-    quantity = Column(Integer)
-    amount = Column(Integer)
-    valueflag = Column(Boolean)
-    info = {'bind_key': 'productdetaildb'}
-
-    def __init__(self, item_no=None, productname=None,unitprice=None, quantity=None,
-                 amount=None, valueflag=False):
-        self.item_no = item_no
-        self.productname = productname
-        self.unitprice = unitprice
-        self.quantity = quantity
-        self.amount = amount
-        self.valueflag = valueflag
-
-    def __repr__(self):
-        return '<ProductDetail %r,%r,%r,%r,%r,%r,>' % (self.item_no, self.productname,
-                    self.unitprice, self.quantity, self.amount, self.valueflag)
-
-class InsertProduct(FlaskForm):
-    item_no = StringField('item_no')
-    productname = StringField('productname')
-    unitprice = IntegerField('unitprice')
-    quantity = IntegerField('quantity')
-    amount = IntegerField('amount')
-    valueflag = BooleanField('valueflag')
-
-    def __init__(self, amount=None ,valueflag=False):
-        self.amount = amount
-        self.valueflag = valueflag
-
-
-def init_db_purchase():
-    from testmodels.database import purchase_engine, Base
-    Base.metadata.create_all(bind=purchase_engine, checkfirst=False)
-
-def init_db_product():
-    from testmodels.database import product_engine, Base
-    Base.metadata.create_all(bind=product_engine, checkfirst=False)
-=======
     purchase_submit = SubmitField('追加')
 
     itemnumber1 = StringField('itemnumber1')
@@ -253,6 +188,5 @@ def init_db_product():
     quantity5 = IntegerField('quantity5')
     amount5 = IntegerField('amount5')
     novalue5 = BooleanField('novalue5')
->>>>>>> db_create
 
 
