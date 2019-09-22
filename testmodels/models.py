@@ -22,14 +22,14 @@ class OrderContent(Base):
     orderfrom = Column(String)
     orderto = Column(String)
     ordervia = Column(String)
-    insurance = Column(Text)
-    ramarks1 = Column(Text)
-    ramarks2 = Column(Text)
-    incoterms = Column(Text)
+    insurance = Column(String)
+    ramarks1 = Column(String)
+    ramarks2 = Column(String)
+    incoterms = Column(String)
     # currency = db.Column() #
     # payment terms #
     signedorder = Column(String)
-    remarks = Column(Text)
+    remarks = Column(String)
     expenseitem = Column(String)
     expensecost = Column(Integer)
 
@@ -76,7 +76,7 @@ class OrderContent(Base):
                  quantity3=None, amount3=None, novalue3=None, itemnumber4=None,
                  productname4=None, unitprice4=None, quantity4=None, amount4=None,
                  itemnumber5=None, productname5=None, unitprice5=None, quantity5=None,
-                 amount5=None):
+                 amount5=None, novalue4=None, novalue5=None):
         self.orderdate = orderdate
         self.expirationdate = expirationdate
         self.deliverydate = deliverydate
@@ -114,11 +114,13 @@ class OrderContent(Base):
         self.unitprice4 = unitprice4
         self.quantity4 = quantity4
         self.amount4 = amount4
+        self.novalue4 = novalue4
         self.itemnumber5 = itemnumber5
         self.productname5 = productname5
         self.unitprice5 = unitprice5
         self.quantity5 = quantity5
         self.amount5 = amount5
+        self.novalue5 = novalue5
 
     # total amount #
     def __repr__(self):
@@ -147,12 +149,12 @@ class InsertOrder(FlaskForm):
     orderfrom = StringField('orderfrom', validators=[DataRequired()])
     orderto = StringField('orderto', validators=[DataRequired()])
     ordervia = StringField('ordervia', validators=[DataRequired()])
-    insurance = TextAreaField('insurance', validators=[DataRequired()])
-    remarks1 = TextAreaField('remarks1')
-    remarks2 = TextAreaField('remarks2')
-    incoterms = TextAreaField('incoterms')
+    insurance = StringField('insurance', validators=[DataRequired()])
+    remarks1 = StringField('remarks1')
+    remarks2 = StringField('remarks2')
+    incoterms = StringField('incoterms')
     signedorder = StringField('signedorder', validators=[DataRequired()])
-    remarks = TextAreaField('remarks')
+    remarks = StringField('remarks')
     expenseitem = StringField('expenseitem')
     expensecost = IntegerField('expensecost')
 

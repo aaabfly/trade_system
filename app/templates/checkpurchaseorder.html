@@ -12,10 +12,25 @@
 </head>
 
 <body>
+
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                <a href="{{ url_for('home') }}">Trading System</a>
+            </h1>
+            <nav>
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('home') }}">Home</a>
+            </nav>
+        </div>
+    </header><!-- /header -->
+
     <h1>Check the purchase order</h1>
     <hr>
     {% for all_purchaseorder in all_purchaseorder %}
+    <!--
     <p>
+        {{all_purchaseorder.orderdate.label}}:{{all_purchaseorder.id}}
         {{all_purchaseorder.orderdate.label}}:{{all_purchaseorder.orderdate}}
         {{all_purchaseorder.expirationdate.label}}:{{all_purchaseorder.expirationdate}}<br />
         {{all_purchaseorder.deliverydate.label}}:{{all_purchaseorder.deliverydate}}
@@ -25,8 +40,6 @@
         {{all_purchaseorder.orderto.label}}:{{all_purchaseorder.orderto}}
         {{all_purchaseorder.ordervia.label}}:{{all_purchaseorder.ordervia}}<br />
         {{all_purchaseorder.insurance.label}}:{{all_purchaseorder.insurance}}
-        {{all_purchaseorder.remarks1.label}}:{{all_purchaseorder.remarks1}}<br />
-        {{all_purchaseorder.remarks2.label}}:{{all_purchaseorder.remarks2}}
         {{all_purchaseorder.incoterms.label}}:{{all_purchaseorder.incoterms}}<br />
         {{all_purchaseorder.signedorder.label}}:{{all_purchaseorder.signedorder}}
         {{all_purchaseorder.remarks.label}}:{{all_purchaseorder.remarks}}<br />
@@ -34,9 +47,21 @@
         {{all_purchaseorder.expensecost.label}}:{{all_purchaseorder.expensecost}}
         {{all_purchaseorder.submit}}
     </p>
+    -->
+
+    <p>
+        <div class="DivLink col-md-12">
+            <span class="orderid">{{all_purchaseorder.orderdate.label}}:{{all_purchaseorder.id}}</span>
+            {{all_purchaseorder.orderdate.label}}:{{all_purchaseorder.orderdate}}
+            {{all_purchaseorder.deliverydate.label}}:{{all_purchaseorder.deliverydate}}
+            {{all_purchaseorder.customername.label}}:{{all_purchaseorder.customername}}<br />
+            {{all_purchaseorder.orderfrom.label}}:{{all_purchaseorder.orderfrom}}
+            {{all_purchaseorder.ordervia.label}}:{{all_purchaseorder.ordervia}}<br />
+            <a class="Link" href="/checkpurchaseorder/{{all_purchaseorder['id']}}/edit"></a>
+        </div>
+    </p>
     <hr>
     {% endfor %}
-    <a href="{{ url_for('home') }}"></a>
 </body>
 
 </html>
