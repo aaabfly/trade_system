@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TRADING SYSTEM</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
+</head>
+
+<body>
+
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                <a href="{{ url_for('home') }}">Trading System</a>
+            </h1>
+            <nav>
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('home') }}">Home</a>
+            </nav>
+        </div>
+    </header><!-- /header -->
+
+    <div class="container clearfix">
+        <form class="mt-5" method="POST" action="{{url_for('index')}}">
+            <div class="border border-dark mt-5">
+                <label for="orderdate">Order Date:</label>
+                {{form_i.orderdate(class='col-md-12 p-3')}}
+                <label for="expirationdate">Expiration Date:</label>
+                {{form_i.expirationdate(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="deliverydate">Delivery Date:</label>
+                {{form_i.deliverydate(class='col-md-12 px-3 pb-3')}}
+                <label for="customerid">Customer ID:</label>
+                {{form_i.customerid(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="customername">Customer Name:</label>
+                {{form_i.customername(class='col-md-12 px-3 pb-3')}}
+                <label for="orderfrom">From:</label>
+                {{form_i.orderfrom(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="orderto">To:</label>
+                {{form_i.orderto(class='col-md-12 px-3 pb-3')}}
+                <label for="ordervia">Via:</label>
+                {{form_i.ordervia(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="Insurance">Insurance:</label>
+                {{form_i.insurance(class='col-md-12 px-3 pb-3')}}
+                <label for="remarks1">Remarks1:</label>
+                {{form_i.remarks1(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="remarks2">Remarks2:</label>
+                {{form_i.remarks2(class='col-md-12 px-3 pb-3')}}
+                <label for="incoterms">Incoterms:</label>
+                {{form_i.incoterms(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="signedorder">Signed Order:</label>
+                {{form_i.signedorder(class='col-md-12 px-3 pb-3')}}
+                <label for="remarks">Remarks:</label>
+                {{form_i.remarks(class='col-md-12 px-3 pb-3')}}<br />
+                <label for="expenseitem">Expense Item:</label>
+                {{form_i.expenseitem(class='col-md-12 px-3 pb-3')}}
+                <label for="expensecost">Expence Cost</label>
+                {{form_i.expensecost(class='col-md-12 px-3 pb-3')}}<br />
+            </div>
+
+            <div class="border border-dark mt-5">
+                <h4>Product Detail 1</h4>
+                <hr>
+                <label for="itemnumber1">Item Number:</label>
+                {{form_i.itemnumber1(class='col-md-12 px-3 pb-3')}}
+                <label for="productname1">Product Name:</label>
+                {{form_i.productname1(class='col-md-12 px-3 pb-3')}}
+                <label for="unitprice1">Unit Price:</label>
+                {{form_i.unitprice1(class='col-md-12 px-3 pb-3')}}
+                <label for="quantity1">Quantity:</label>
+                {{form_i.quantity1(class='col-md-12 px-3 pb-3')}}
+                <!--{{form_i.amount1}}-->
+            </div>
+
+            <div class="border border-dark mt-5">
+                <h4>Product Detail 2</h4>
+                <hr>
+                <label for="itemnumber2">Item Number:</label>
+                {{form_i.itemnumber2(class='col-md-12 px-3 pb-3')}}
+                <label for="productname2">Product Name:</label>
+                {{form_i.productname2(class='col-md-12 px-3 pb-3')}}
+                <label for="unitprice2">Unit Price:</label>
+                {{form_i.unitprice2(class='col-md-12 px-3 pb-3')}}
+                <label for="quantity1">Quantity:</label>
+                {{form_i.quantity2(class='col-md-12 px-3 pb-3')}}
+                <!--{{form_i.amount2}}-->
+            </div>
+
+            <div class="border border-dark mt-5">
+                <h4>Product Detail 3</h4>
+                <hr>
+                <label for="itemnumber3">Item Number:</label>
+                {{form_i.itemnumber3(class='col-md-12 px-3 pb-3')}}
+                <label for="productname3">Product Name:</label>
+                {{form_i.productname3(class='col-md-12 px-3 pb-3')}}
+                <label for="unitprice3">Unit Price:</label>
+                {{form_i.unitprice3(class='col-md-12 px-3 pb-3')}}
+                <label for="quantity3">Quantity:</label>
+                {{form_i.quantity3(class='col-md-12 px-3 pb-3')}}
+                <!--{{form_i.amount3}}-->
+            </div>
+
+            <div class="border border-dark mt-5">
+                <h4>Product Detail 4</h4>
+                <hr>
+                <label for="itemnumber4">Item Number:</label>
+                {{form_i.itemnumber4(class='col-md-12 px-3 pb-3')}}
+                <label for="productname4">Product Name:</label>
+                {{form_i.productname4(class='col-md-12 px-3 pb-3')}}
+                <label for="unitprice4">Unit Price:</label>
+                {{form_i.unitprice4(class='col-md-12 px-3 pb-3')}}
+                <label for="quantity4">Quantity:</label>
+                {{form_i.quantity4(class='col-md-12 px-3 pb-3')}}
+                <!--{{form_i.amount4}}-->
+            </div>
+
+            <div class="border border-dark mt-5">
+                <h4>Product Detail 5</h4>
+                <hr>
+                <label for="itemnumber5">Item Number:</label>
+                {{form_i.itemnumber5(class='col-md-12 px-3 pb-3')}}
+                <label for="productname5">Product Name:</label>
+                {{form_i.productname5(class='col-md-12 px-3 pb-3')}}
+                <label for="unitprice5">Unit Price:</label>
+                {{form_i.unitprice5(class='col-md-12 px-3 pb-3')}}
+                <label for="quantity5">Quantity:</label>
+                {{form_i.quantity5(class='col-md-12 px-3 pb-3')}}
+                <!--{{form_i.amount5}}-->
+            </div>
+
+            {{form_i.purchase_submit}}<br />
+
+        </form>
+    </div>
+
+</body>
+
+</html>

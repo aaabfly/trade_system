@@ -1,8 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String, Text, Date, create_engine, Boolean
+from sqlalchemy import Column, Integer, String, Date, create_engine, Boolean
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, HiddenField, TextAreaField, IntegerField, BooleanField
+from wtforms import StringField, SubmitField, HiddenField, IntegerField, BooleanField
 from wtforms.validators import DataRequired, Length
 from wtforms.fields.html5 import DateField
 
