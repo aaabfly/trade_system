@@ -51,12 +51,14 @@
 
     <p>
         <div class="DivLink col-md-12">
-            <span class="orderid">{{all_purchaseorder.orderdate.label}}:{{all_purchaseorder.id}}</span>
-            {{all_purchaseorder.orderdate.label}}:{{all_purchaseorder.orderdate}}
-            {{all_purchaseorder.deliverydate.label}}:{{all_purchaseorder.deliverydate}}
-            {{all_purchaseorder.customername.label}}:{{all_purchaseorder.customername}}<br />
-            {{all_purchaseorder.orderfrom.label}}:{{all_purchaseorder.orderfrom}}
-            {{all_purchaseorder.ordervia.label}}:{{all_purchaseorder.ordervia}}<br />
+            <div class="orderid">
+                {{all_purchaseorder.id}}
+            </div>
+            Order Date:{{all_purchaseorder.orderdate}} 
+            Delivery Date:{{all_purchaseorder.deliverydate}}<br />
+            Customer Name:{{all_purchaseorder.customername}} 
+            From:{{all_purchaseorder.orderfrom}} 
+            Via:{{all_purchaseorder.ordervia}}
             <a class="Link" href="/checkpurchaseorder/{{all_purchaseorder['id']}}/edit"></a>
         </div>
     </p>
